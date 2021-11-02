@@ -4,6 +4,11 @@ import java.util.*;
 
 public class SetDemo {
   public static void show() {
+    Collection<String> collection = new ArrayList<>();
+    Collections.addAll(collection, "a","b","c","c");
+    Set<String> set = new HashSet<>(collection);
+    System.out.println(set); //adding a collection to a set removes duplicates
+
     Set<String> set1 =
       new HashSet<>(Arrays.asList("a", "b", "c"));
 
