@@ -4,6 +4,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
+//java.util.function contains all the functional interfaces in java
+
 public class LambdasDemo {
   public static void show() { //implementing  a method and overrid within a method is considered an anonymous class
     Function<String,Integer> map =  str -> str.length();
