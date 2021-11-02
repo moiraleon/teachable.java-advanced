@@ -18,6 +18,7 @@ public class LambdasDemo {
 
     Printer printer = message -> System.out.println(message);//lambda expressions are essentially objects and can be saved as variables -- they can be used to represent anonymous funcitons
 
+    greet(System.out::println); //method reference of the above lambda expression- method references allow us to write compact and easier to read lambda expressions
     }
 
   public static void greet(Printer printer){
