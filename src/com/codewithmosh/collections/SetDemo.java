@@ -15,13 +15,13 @@ public class SetDemo {
     Set<String> set2 =
       new HashSet<>(Arrays.asList("b", "c", "d"));
 
-    // Union
+    // Union combines without duplicates
     set1.addAll(set2);
-
-    // Intersection
+    System.out.println(set1);
+    // Intersection shows which points occur in both
     set1.retainAll(set2);
 
-    // Difference
+    // Difference displays what is is set 1 that is not in set 2
     set1.removeAll(set2);
   }
 }
