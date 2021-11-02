@@ -1,6 +1,7 @@
 package com.codewithmosh.lambdas;
 
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
 public class LambdasDemo {
@@ -9,6 +10,10 @@ public class LambdasDemo {
     var length = map.apply("Sky");
     System.out.println(length);
 
+
+    //Predicate interface
+    Predicate<String> isLongerThan5 = str -> str.length()>5;
+    var result = isLongerThan5.test("sky");
 
     UnaryOperator<Integer> square = n -> n * n;
     UnaryOperator<Integer> increment = n -> n + 1;
