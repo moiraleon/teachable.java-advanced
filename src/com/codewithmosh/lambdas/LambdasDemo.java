@@ -15,6 +15,8 @@ public class LambdasDemo {
     Predicate<String> isLongerThan5 = str -> str.length()>5;
     var result = isLongerThan5.test("sky");
 
+    //chaining multiple predicate functions can be done by typing a function name and adding the .and method which acts like a double && there is also an or funciton to apply
+
     UnaryOperator<Integer> square = n -> n * n;
     UnaryOperator<Integer> increment = n -> n + 1;
 
