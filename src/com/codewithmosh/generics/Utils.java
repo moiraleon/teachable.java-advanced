@@ -7,7 +7,7 @@ public class Utils {
 
   public static <K, V> void print(K key, V value) {
     System.out.println(key + "=" + value);
-  }
+  }//multiple type parameters
 
   public static void printUser(User user) {
     System.out.println(user);

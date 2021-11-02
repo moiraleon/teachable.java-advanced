@@ -4,7 +4,7 @@ import com.codewithmosh.generics.GenericList;
 import com.codewithmosh.generics.User;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) { //if we use extends + Interface i.e. Number than the list items can only be derived from the number class
    // new GenericList<Integer>().add(); //generic lists ensure that every object in the list is the correct types
         var list  = new GenericList<User>();
         list.add(new User());
