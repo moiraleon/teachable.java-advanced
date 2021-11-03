@@ -115,5 +115,26 @@ public class StreamsDemo {
 
     System.out.println(result1);
 
+
+    //grouping or classifying movies within streams by genre
+
+//    var result3 = movies.stream()
+//            .collect(Collectors.groupingBy(
+//                    Movie::getGenre, Collectors.counting()));
+//
+//    System.out.println(result3);
+
+    //repeated but with the names of movies
+
+    var result3 = movies.stream()
+            .collect(Collectors.groupingBy(
+                    Movie::getGenre,
+                    Collectors.mapping(
+                            Movie::getTitle,
+                            Collectors.joining(", ")
+                    )));
+
+    System.out.println(result3);
+
   }
 }
