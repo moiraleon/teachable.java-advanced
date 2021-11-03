@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamsDemo {
@@ -148,5 +149,8 @@ public class StreamsDemo {
             ));
 
 
+  //  IntStream.range(1,5) 5 not included
+            IntStream.rangeClosed(1,5) //5 included
+            .forEach(System.out::println);
   }
 }
