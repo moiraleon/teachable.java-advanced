@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 public class DownloadStatus {
   private boolean isDone;
-  private LongAdder totalBytes = new LongAdder();
+  private LongAdder totalBytes = new LongAdder(); //if you have multiple threads updating a value frequently the Adder class is preferred over atomic types
   private int totalFiles;
 
   public int getTotalBytes() {
