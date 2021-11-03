@@ -31,3 +31,6 @@ public class DownloadStatus {
     isDone = true;
   }
 }
+
+//avoid synchronization -it creates unnecessary wait and sequential code running
+//volatile statement lets our program know to check the alue and not rely o the value stored in cache but to read it form the main memory
