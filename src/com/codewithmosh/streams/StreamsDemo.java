@@ -2,6 +2,7 @@ package com.codewithmosh.streams;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -90,6 +91,19 @@ public class StreamsDemo {
             .get();
 
     System.out.println(result);
+
+
+    Optional<Integer> sum = movies.stream()
+            .map(movie -> movie.getLikes())
+            .reduce(Integer::sum);//.reduce((a,b)-> a+b); lambda
+    System.out.println(sum.orElse(0)); //providing or else in the case the result is 0 so it does not throw an error
+
+
+    //simplified as
+    Integer sum2 = movies.stream()
+            .map(movie -> movie.getLikes())
+            .reduce(0,Integer::sum);
+    System.out.println(sum2);
 
   }
 }
