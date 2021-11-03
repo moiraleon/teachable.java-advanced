@@ -22,9 +22,9 @@ public class CreatingStreamsDemo {
           .forEach(n -> System.out.println(n));
 
     // Generate from scratch
-    Stream.generate(() -> Math.random())
-          .limit(3)
-          .forEach(n -> System.out.println(n));
+    Stream.generate(() -> Math.random()) //create a stream
+          .limit(3)   //apply one or more transformations on that stream
+          .forEach(n -> System.out.println(n)); //call an operation that actually terminates that stream
 
     // Generate from scratch
     Stream.iterate(1, n -> n + 1)
