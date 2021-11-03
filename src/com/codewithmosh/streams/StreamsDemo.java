@@ -1,5 +1,6 @@
 package com.codewithmosh.streams;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -72,6 +73,23 @@ public class StreamsDemo {
     //if we want to map price to movies -- avoiding repetitive displays of the same price
     //.distinct method
     //.peek method is great for printing during the process to trouble shoot problems because unlike sout it is not a terminal operation
+
+
+    //REDUCERS --all are terminal methods so they can not be performed together
+    //.count()
+    //.anyMatch()
+    //.allMatch()
+    //.noneMatch()
+    //.findFirst()
+    //.findAny()
+    //.max()
+    //.min()
+
+    var result = movies.stream()
+            .max(Comparator.comparing(Movie::getLikes))
+            .get();
+
+    System.out.println(result);
 
   }
 }
