@@ -48,5 +48,23 @@ public class StreamsDemo {
             .forEach(movie -> System.out.println(movie.getTitle()));
 
 
+    //stream.limit
+    //stream.skip
+    //stream.takeWhile() will stop once it reachers a data point that is not satisfactory while the others will scan through all the data to display
+    //dropWhile is the opposite of takeWhile
+
+
+    //For Web Browser
+    //1000 movies
+    // 10 movies per page i.e page size
+    //3rd page
+    //formula for skipping quantity skip((page -1) X page size)
+    //limit (10) = limit(pageSize)
+
+    movies.stream()
+            .skip(20)
+            .limit(10)
+            .forEach(movie -> System.out.println(movie.getTitle()));
+
   }
 }
