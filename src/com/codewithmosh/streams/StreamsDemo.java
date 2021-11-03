@@ -69,5 +69,9 @@ public class StreamsDemo {
 
     //.reversed is used for displaying data in reversed order
 
+    //if we want to map price to movies -- avoiding repetitive displays of the same price
+    //.distinct method
+    //.peek method is great for printing during the process to trouble shoot problems because unlike sout it is not a terminal operation
+
   }
 }
