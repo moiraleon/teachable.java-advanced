@@ -22,8 +22,8 @@ public class LambdasDemo {
     UnaryOperator<Integer> square = n -> n * n;
     UnaryOperator<Integer> increment = n -> n + 1;
 
-    var result = increment.andThen(square).apply(1);
-    System.out.println(result);
+//    var result = increment.andThen(square).apply(1);
+//    System.out.println(result);
 
  // //with only a single parameter parenthasis are not needed -- code can be rewritten as:
     //greet(message ->{ //in addition if there is only one line of code curly braces are not needed
