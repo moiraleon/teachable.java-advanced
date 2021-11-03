@@ -136,5 +136,17 @@ public class StreamsDemo {
 
     System.out.println(result3);
 
+    //Partitioning Data uses partitionBy method for example partitioning movies that have fewer or greater than 20 likes
+
+
+    //returns boolean
+    movies.stream()
+            .collect(Collectors.partitioningBy(
+                    movie -> movie.getLikes() >20,
+                    Collectors.mapping(Movie::getTitle,
+                                         Collectors.joining(", "))
+            ));
+
+
   }
 }
