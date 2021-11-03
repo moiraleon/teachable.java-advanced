@@ -1,6 +1,7 @@
 package com.codewithmosh.streams;
 
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class StreamsDemo {
@@ -18,11 +19,11 @@ public class StreamsDemo {
 // this will print out streams of lists of integers-- we use flat maps when we want to work with the numbers directly
 
 
-//    List<Movie> movies = List.of(
-//            new Movie("a", 10,Genre.COMEDY),
-//            new Movie("b", 15,Genre.COMEDY),
-//            new Movie("c", 20,Genre.COMEDY)
-//    );
+    List<Movie> movies = List.of(
+            new Movie("a", 10,Genre.COMEDY),
+            new Movie("b", 15,Genre.COMEDY),
+            new Movie("c", 20,Genre.COMEDY)
+    );
 //
 //    movies.stream()
 //            .map(movie -> movie.getTitle())
@@ -40,5 +41,12 @@ public class StreamsDemo {
 //      var count2 = movies.stream()
 //              .filter(movie -> movie.getLikes()>10)
 //              .count();
+
+    Predicate<Movie> isPopular = movie -> movie.getLikes()>10;
+    movies.stream()
+            .filter(isPopular)
+            .forEach(movie -> System.out.println(movie.getTitle()));
+
+
   }
 }
