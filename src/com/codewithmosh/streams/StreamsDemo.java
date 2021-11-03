@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsDemo {
@@ -104,6 +105,15 @@ public class StreamsDemo {
             .map(movie -> movie.getLikes())
             .reduce(0,Integer::sum);
     System.out.println(sum2);
+
+
+    //creating a  hash map displaying movie title and likes as an object
+   var result1 = movies.stream()
+            .filter(movie -> movie.getLikes()>10)
+            //.collect(Collectors.toMap(Movie::getTitle, Movie::getLikes));
+                    .collect(Collectors.summarizingInt(Movie::getLikes)); //provides statistics on data like min max, count, and average //.joining method concatenates and uses a delimiter  like a , to separate as provided by inpur
+
+    System.out.println(result1);
 
   }
 }
