@@ -66,5 +66,8 @@ public class StreamsDemo {
             .limit(10)
             .forEach(movie -> System.out.println(movie.getTitle()));
 
+
+    //.reversed is used for displaying data in reversed order
+
   }
 }

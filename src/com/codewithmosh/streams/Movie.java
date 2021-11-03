@@ -28,5 +28,5 @@ public class Movie implements Comparable<Movie> {
   @Override
   public int compareTo(Movie o) {
     return 0;
-  }
+  } //we use comparator interface to enable us to sort the movies by different values such as title, likes, genre
 }
