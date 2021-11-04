@@ -7,10 +7,27 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 public class CompletableFuturesDemo {
-    public static int toFahrenheit(int celsius){
-        return (int) (celsius * 1.8)+32;
+
+    //function for retrieving user email and printing playlist in asynchronous format
+
+    public static CompletableFuture<String> getUserEmailAsynch(){ //for a real user we would use type user not string
+        return CompletableFuture.supplyAsync(()-> "email");
     }
+
+    public static CompletableFuture<String> getPlaylistAsynch(String email){
+        return CompletableFuture.supplyAsync(()-> "playlist");
+    }
+
   public static void show() {
+        //retrieving users email and then displaying playlist form email -- completable futures allow us to create  new task upon completion of another
+
+        //CompletableFuture.supplyAsync(()-> "email") -- replace with method as would be used with real database
+      getUserEmailAsynch()
+              .thenCompose(CompletableFuturesDemo::getPlaylistAsynch)
+              .thenAccept(playlist -> System.out.println(playlist));
+
+
+        //
       var future1  = CompletableFuture.supplyAsync(()->20);
         future1
               .thenApply(CompletableFuturesDemo::toFahrenheit )
@@ -48,4 +65,10 @@ public class CompletableFuturesDemo {
       e.printStackTrace();
     }
   }
+    public static int toFahrenheit(int celsius){
+        return (int) (celsius * 1.8)+32;
+    }
+
+
+
 }
