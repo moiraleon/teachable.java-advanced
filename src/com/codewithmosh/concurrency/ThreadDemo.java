@@ -1,5 +1,8 @@
 package com.codewithmosh.concurrency;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 public class ThreadDemo {
   public static void show() {
     // We can create a thread using a lambda expression
@@ -30,5 +33,12 @@ public class ThreadDemo {
     var current = Thread.currentThread();
     System.out.println(current.getId());
     System.out.println(current.getName());
+
+
+    Map<Integer, String> map = new ConcurrentHashMap<>(); //if we have multiple threads accessing our hashmap at the same time all we have to do to make it thread safe is chane the type to Concurrent HAsh Map
+    map.put(1,"a");
+    map.get(1);
+    map.remove(1);
+
   }
 }
