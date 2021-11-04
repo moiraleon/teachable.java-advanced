@@ -33,6 +33,7 @@ public static void show1(){  //combining and waiting for multiple completable fu
         }
         System.out.println("All tasks completed successfully");
     });
-}
-
+}//anyOF() method is also available to print whitout waiting for a certain variable
+    //.orTimeout(1,TimeUnit.SECONDS) function available to stop funciton when taking too long (first param being unit quantity, second param being what type of unit)
+//for the user the best approach is not to do timeout but to recover with a default value so do .completeOnTimeout(1,1,TimeUnit.SECONDS) (1 being default return value and the other two being the same as in the previous mentioned method)
 }
