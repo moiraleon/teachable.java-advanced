@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 public class ExecutorsDemo {
   public static void show() {
-    var executor = Executors.newFixedThreadPool(2);
+    var executor = Executors.newFixedThreadPool(2);//instance of the ThreadPoolExecutor Class //using the executor class keeps us  from having to create threads and worry about insufficient memory, it simply creates a thread pool, queue and assignment to threads for tasks
 
     try {
       var future = executor.submit(() -> {
@@ -22,8 +22,8 @@ public class ExecutorsDemo {
         e.printStackTrace();
       }
     }
-    finally {
-      executor.shutdown();
+    finally { //shut down should always be in finally, so it gets shut down regardless of any exceptions that happen in out code
+      executor.shutdown(); //tasks and queue are continuously running, so we have to explicitly state and tell our executor to shut down ---shut down (waits for completion) shut down now -- shuts down without waiting for completion
     }
   }
 }
