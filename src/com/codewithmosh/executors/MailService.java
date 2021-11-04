@@ -10,5 +10,5 @@ public class MailService {
 
   public CompletableFuture<Void> sendAsync() {
     return CompletableFuture.runAsync(() -> send());
-  }
+  } //Asynchronous
 }
