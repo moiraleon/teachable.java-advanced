@@ -1,6 +1,7 @@
 package com.codewithmosh.executors;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class CompletableFuturesDemo2 {
 public static void show(){
@@ -12,6 +13,26 @@ public static void show(){
      first
              .thenCombine(second, (price,exchangeRate) -> price*exchangeRate)
              .thenAccept(result -> System.out.println(result));
+}
+
+public static void show1(){  //combining and waiting for multiple completable futures
+    var one = CompletableFuture.supplyAsync(()-> 1);
+    var two = CompletableFuture.supplyAsync(()-> 2);
+    var three = CompletableFuture.supplyAsync(()-> 3);
+
+    var all = CompletableFuture.allOf(one,two,three); //input can be as many variables or none
+    all.thenRun(()-> {
+        //even when running get() methods here within this task they will not block other threads
+        try {
+          var resultOne =  one.get();
+            System.out.println(resultOne);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("All tasks completed successfully");
+    });
 }
 
 }
